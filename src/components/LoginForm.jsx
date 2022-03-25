@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import axios from 'axios';
+import {Link} from "react-router-dom";
 
 const projectID = 'b2c282c7-daa7-4304-adf5-65e412bfc306';
 
-const Modal = () => {
+const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -37,13 +38,14 @@ const Modal = () => {
             <button type="submit" className="button">
               <span>Start chatting</span>
             </button>
+            <span style={{color: "#FFF"}}>Don't have an account? <Link className="link" to="/signup">Signup</Link> </span>
           </div>
+          <h1>{error}</h1>
         </form>
-        <h1>{error}</h1>
       </div>
     </div>
 
   );
 };
 
-export default Modal;
+export default LoginForm;
