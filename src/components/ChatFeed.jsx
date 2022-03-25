@@ -14,7 +14,7 @@ function ChatFeed(props) {
                 className="read-receipt"
                 style={{
                 float: isMyMessage ? 'right' : 'left',
-                backgroundImage: person.person.avatar && `url(${person.person.avatar})`,
+                backgroundImage: person.person.avatar && `url(${person?.person?.avatar})`,
                 }}                
             />
         ));
@@ -43,7 +43,11 @@ function ChatFeed(props) {
     };
 
     if (!chat)
-        return <div />;
+        return (
+            <div className="silent">
+                <h3>It's so silent in here! Start a New Chatterbox!</h3> 
+            </div>
+        )
 
     return (
         <div className="chat-feed">

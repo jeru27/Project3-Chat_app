@@ -8,10 +8,10 @@ const OtherMessages = ({ lastMessage, message }) => {
         {isFirstMessageByUser && (
             <div
                 className="message-avatar"
-                style={{backgroundImage: `url(${message?.sender?.avatar})`}}
+                style={{backgroundImage: message.sender && `url(${message?.sender?.avatar})`}}
             />
         )}
-        {message?.attachments?.length > 0
+        {message.attachments.length && message.attachments > 0
             ? (
                 <img
                     src={message.attachments[0].file}
